@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -43,8 +44,29 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+export default function SignUp(props) {
   const classes = useStyles();
+
+  const [first_name, setFirst_name] = useState('');
+  const [last_name, setLast_name] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+    let handleSubmit = (event) => {
+        event.preventDefault();
+        fetch('http://localhost:3000/user/register', {
+           method: 'POST',
+           body: JSON.stringify({user: {username: username, password: password, first_name: first_name, last_name: last_name}}),
+           headers: new Headers({
+               'Content-Type': 'application/json'
+           })
+        }).then(
+            (response) => response.json()
+        ).then((data) => {
+            props.updateToken(data.sessionToken)
+        })
+    }
+
 
   return (
     <Container component="main" maxWidth="xs">
@@ -65,6 +87,9 @@ export default function SignUp() {
                 variant="outlined"
                 required
                 fullWidth
+                
+                onChange={(e) => setFirst_name(e.target.value)}
+                value={first_name}
                 id="firstName"
                 label="First Name"
                 autoFocus
@@ -77,6 +102,8 @@ export default function SignUp() {
                 fullWidth
                 id="lastName"
                 label="Last Name"
+                onChange={(e) => setLast_name(e.target.value)}
+                value={last_name}
                 name="lastName"
                 autoComplete="lname"
               />
@@ -88,7 +115,9 @@ export default function SignUp() {
                 fullWidth
                 id="email"
                 label="Email Address"
-                name="email"
+                onChange={(e) => setUsername(e.target.value)}
+                name='username'
+                value={username}
                 autoComplete="email"
               />
             </Grid>
@@ -98,6 +127,8 @@ export default function SignUp() {
                 required
                 fullWidth
                 name="password"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
                 label="Password"
                 type="password"
                 id="password"
@@ -108,6 +139,7 @@ export default function SignUp() {
           </Grid>
           <Button
             type="submit"
+            onClick={handleSubmit}
             fullWidth
             variant="contained"
             color="primary"

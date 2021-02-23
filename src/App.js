@@ -1,8 +1,6 @@
 // import logo from './logo.svg';
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import Signup from './auth/Signup';
-import Login from './auth/Login';
 import Auth from './auth/Auth';
 import BirdNest from './components/BirdNest';
 import Nav from './components/Nav';

@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -45,8 +46,29 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function Login(props) {
+  
   const classes = useStyles();
+  
+  const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+
+
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        fetch('http://localhost:3000/user/login', {
+           method: 'POST',
+           body: JSON.stringify({user: {username: username, password: password}}),
+           headers: new Headers({
+               'Content-Type': 'application/json'
+           })
+        }).then(
+            (response) => response.json()
+        ).then((data) => {
+            props.updateToken(data.sessionToken)
+        })
+      }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -65,6 +87,8 @@ export default function SignIn() {
             fullWidth
             id="email"
             label="Email Address"
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
             name="email"
             autoComplete="email"
             autoFocus
@@ -74,6 +98,8 @@ export default function SignIn() {
             margin="normal"
             required
             fullWidth
+            onChange={(e) => setPassword(e.target.value)}
+            value={password}
             name="password"
             label="Password"
             type="password"
@@ -86,6 +112,7 @@ export default function SignIn() {
           />
           <Button
             type="submit"
+            onClick={handleSubmit}
             fullWidth
             variant="contained"
             color="primary"
@@ -112,4 +139,4 @@ export default function SignIn() {
       </Box>
     </Container>
   );
-}
+  }
