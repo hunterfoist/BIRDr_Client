@@ -95,7 +95,7 @@ export default function SignUp(props) {
                 autoFocus
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
