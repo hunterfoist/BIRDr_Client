@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -9,10 +9,18 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+});
+
 const BirdTable = props => {
   
   const deleteBird = bird => {
-    fetch(`http://localhost:3000/log/deletelog/${bird.id}`, {
+
+    fetch(`http://localhost:3000/log/deletelog${bird.id}`, {
+
       method: 'DELETE',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -25,12 +33,12 @@ const BirdTable = props => {
   const birdMapper = () => {
     return props.birds.map((bird, index) => {
       return(
-        <TableContainer>
+        <TableContainer component={Paper}>
           <Table>
         <TableBody>
-        <TableRow key={index}>
-          <TableHead scope="row">{bird.id}</TableHead>
-          <TableCell>{bird.species}</TableCell>
+        <TableRow key={bird.index}>
+              <TableCell component="th" scope="row">
+                {bird.species}</TableCell>
           <TableCell>{bird.location}</TableCell>
           <TableCell>{bird.time}</TableCell>
           <TableCell>{bird.date}</TableCell>
