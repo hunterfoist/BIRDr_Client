@@ -12,7 +12,7 @@ import Paper from '@material-ui/core/Paper';
 const BirdTable = props => {
   
   const deleteBird = bird => {
-    fetch(`http://localhost:3000/deletelog/${bird.id}`, {
+    fetch(`http://localhost:3000/log/deletelog/${bird.id}`, {
       method: 'DELETE',
       headers: new Headers({
         'Content-Type': 'application/json',
