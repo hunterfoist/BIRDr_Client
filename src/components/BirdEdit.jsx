@@ -12,7 +12,7 @@
 
 //   const birdUpdate = (event, bird) => {
 //     event.preventDefault();
-//     fetch(`http://localhost:3000/updatelog/${props.birdToUpdate.id}`, {
+//     fetch(`http://localhost:3000/log/updatelog/${props.birdToUpdate.id}`, {
 //       method: 'PUT',
 //       headers: new Headers({
 //         'Content-Type': 'application/json',
