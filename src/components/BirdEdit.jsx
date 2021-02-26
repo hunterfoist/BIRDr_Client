@@ -19,9 +19,12 @@ const BirdEdit = props => {
   const [ editLocation, setEditLocation ] = useState(props.birdToUpdate.definition);
   const [ editTime, setEditTime ] = useState(props.birdToUpdate.result);
 
+
+
   const [ editDate, setEditDate ] = useState(props.birdToUpdate.result);
   const [ editRarity, setEditRarity ] = useState(props.birdToUpdate.result);
   const [ editSecret, setEditSecret ] = useState(props.birdToUpdate.result);
+
 
   const handleSubmit = (event, bird) => {
     event.preventDefault();
