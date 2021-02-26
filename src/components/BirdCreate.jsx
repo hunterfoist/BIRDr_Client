@@ -19,13 +19,10 @@ const BirdCreate = props => {
   const [ image_url, setImage_url] = useState('');
   const [ secret, setSecret ] = useState('false');
 
-  // const triggerSpeciesInputChange = event => setSpecies(event.target.value);
-  // const triggerLocationInputChange = event => setLocation(event.target.value);
-  // const triggerDateInputChange = event => setDate(event.target.value);
-  // const triggerTimeInputChange = event => setTime(event.target.value);
-  // const triggerRarityInputChange = event => setRarity(event.target.value);
-  // const triggerSecretInputChange = event => setSecret(event.target.value);
 
+
+
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     fetch('http://localhost:3000/log/createlog', {

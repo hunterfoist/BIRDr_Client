@@ -123,6 +123,7 @@ export default function SignUp(props) {
             </Grid>
             <Grid item xs={12}>
               <TextField
+                inputProps={{ pattern:"(?=.*/d)(?=.*[a-z])(?=.*[A-Z]).{5,}" }}
                 variant="outlined"
                 required
                 fullWidth
@@ -151,6 +152,7 @@ export default function SignUp(props) {
             <Grid item>
               <Link href="#" variant="body2">
                 Already a BIRDr member? Login 
+                
               </Link>
             </Grid>
           </Grid>
