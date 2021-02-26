@@ -18,7 +18,9 @@ const useStyles = makeStyles({
 const BirdTable = props => {
   
   const deleteBird = bird => {
+
     fetch(`http://localhost:3000/log/deletelog${bird.id}`, {
+
       method: 'DELETE',
       headers: new Headers({
         'Content-Type': 'application/json',
