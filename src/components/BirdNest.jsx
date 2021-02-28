@@ -12,7 +12,7 @@ const BirdNest = props => {
   const [ birdToUpdate, setBirdToUpdate ] = useState({});
 
   const fetchBirds = () => {
-    fetch('http://localhost:3000/log', {
+    fetch('http://localhost:3000/log/getlogs', {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',

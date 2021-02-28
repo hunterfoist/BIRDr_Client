@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   },
 });
 
-const BirdTable = props => {
+const BirdLog = props => {
   const [open, setOpen] = React.useState(false);
   
   const handleClickOpen = () => {
@@ -82,4 +82,4 @@ const BirdTable = props => {
     </>
   );
 };
-export default BirdTable;
+export default BirdLog;
