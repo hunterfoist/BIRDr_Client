@@ -15,15 +15,11 @@ const useStyles = makeStyles({
   },
 });
 
-const BirdTable = props => {
+const BirdLog = props => {
   
   const deleteBird = bird => {
-
-
-    fetch(`http://localhost:3000/log/deletelog${bird.id}`, {
-
-
-      method: 'DELETE',
+  fetch(`http://localhost:3000/log/deletelog${bird.id}`, {
+  method: 'DELETE',
       headers: new Headers({
         'Content-Type': 'application/json',
         'Authorization': props.token
@@ -70,4 +66,4 @@ const BirdTable = props => {
     </>
   );
 };
-export default BirdTable;
+export default BirdLog;
