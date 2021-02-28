@@ -21,11 +21,11 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 const BirdEdit = props => {
 
   const [ editSpecies, setEditSpecies ] = useState(props.birdToUpdate.species);
-  const [ editLocation, setEditLocation ] = useState(props.birdToUpdate.location);
-  const [ editTime, setEditTime ] = useState(props.birdToUpdate.time);
-  const [ editDate, setEditDate ] = useState(props.birdToUpdate.date);
-  const [ editRarity, setEditRarity ] = useState(props.birdToUpdate.rarity);
-  const [ editSecret, setEditSecret ] = useState(props.birdToUpdate.secret);
+  const [ editLocation, setEditLocation ] = useState(props.editUpdateBird.location);
+  const [ editTime, setEditTime ] = useState(props.editUpdateBird.time);
+  const [ editDate, setEditDate ] = useState(props.editUpdateBird.date);
+  const [ editRarity, setEditRarity ] = useState(props.editUpdateBird.rarity);
+  const [ editSecret, setEditSecret ] = useState(props.editUpdateBird.secret);
 
 
   const handleSubmit = (event, bird) => {
