@@ -64,7 +64,7 @@ const BirdLog = props => {
         </TableBody>
         </Table>
         </TableContainer>
-        <BirdEdit open={open} handleClose={handleClose} handleClickOpen={handleClickOpen}/>
+        {/* <BirdEdit open={open} handleClose={handleClose} handleClickOpen={handleClickOpen}/> */}
         </div>
       );
     });

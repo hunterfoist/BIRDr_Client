@@ -20,7 +20,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 
 const BirdEdit = props => {
 
-  const [ editSpecies, setEditSpecies ] = useState(props.birdToUpdate.bird.species);
+  const [ editSpecies, setEditSpecies ] = useState(props.birdToUpdate.species);
   const [ editLocation, setEditLocation ] = useState(props.birdToUpdate.location);
   const [ editTime, setEditTime ] = useState(props.birdToUpdate.time);
   const [ editDate, setEditDate ] = useState(props.birdToUpdate.date);
@@ -38,11 +38,19 @@ const BirdEdit = props => {
       }),
       body: JSON.stringify({log: { species: editSpecies, location: editLocation, time: editTime, date: editDate, rarity: editRarity, secret: editSecret }})
     })
-    .then(response => {
+    .then(response => response.json())
+    .then(logData => {
+      console.table(logData);
+      setEditSpecies('');
+      setEditLocation('');
+      setEditDate('');
+      setEditTime('');
+      setEditRarity('');
+      setEditSecret('');
       props.fetchBirds();
-      props.handleClose();
     })
-  };
+      props.handleClose();
+    }
   
 
 

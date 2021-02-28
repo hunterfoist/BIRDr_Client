@@ -47,9 +47,9 @@ const BirdNest = props => {
 
         <BirdLog birds={birds} editUpdateBird={editUpdateBird} updateOn={updateOn} fetchBirds={fetchBirds} token={props.token} />
 
-
-        </Grid>
         {updateActive ? <BirdEdit birdToUpdate={birdToUpdate} updateOff={updateOff} token={props.token} fetchBirds={fetchBirds} /> : <></>}
+        </Grid>
+        
       
     </Container>
   );
