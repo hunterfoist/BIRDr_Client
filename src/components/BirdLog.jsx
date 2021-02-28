@@ -29,7 +29,7 @@ const BirdTable = props => {
   const deleteBird = bird => {
 
 
-    fetch(`http://localhost:3000/log/deletelog${bird.id}`, {
+    fetch(`http://localhost:3000/log/deletelog/${bird.id}`, {
 
 
       method: 'DELETE',
@@ -48,7 +48,7 @@ const BirdTable = props => {
         <TableContainer component={Paper}>
           <Table>
         <TableBody>
-        <TableRow key={bird.index}>
+        <TableRow key={index}>
               <TableCell component="th" scope="row">
                 {bird.species}</TableCell>
           <TableCell>{bird.location}</TableCell>
