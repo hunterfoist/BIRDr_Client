@@ -13,6 +13,13 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+
+
 const BirdEdit = props => {
 
   const [ editSpecies, setEditSpecies ] = useState(props.birdToUpdate.description);
@@ -24,6 +31,17 @@ const BirdEdit = props => {
   const [ editDate, setEditDate ] = useState(props.birdToUpdate.result);
   const [ editRarity, setEditRarity ] = useState(props.birdToUpdate.result);
   const [ editSecret, setEditSecret ] = useState(props.birdToUpdate.result);
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
 
 
   const handleSubmit = (event, bird) => {
@@ -52,7 +70,6 @@ const BirdEdit = props => {
                 variant="outlined"
                 required
                 fullWidth
-                
                 onChange={(e) => setEditSpecies(e.target.value)}
                 value={editSpecies}
                 id="species"
