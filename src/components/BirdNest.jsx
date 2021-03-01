@@ -34,6 +34,7 @@ const BirdNest = props => {
 
   useEffect(() => fetchBirds(), [])
 
+
   return(
     <Container>
      
@@ -45,9 +46,9 @@ const BirdNest = props => {
 
         <BirdLog birds={birds} editUpdateBird={editUpdateBird} updateOn={updateOn} fetchBirds={fetchBirds} token={props.token} />
 
-
+        {updateActive ? <BirdEdit birdToUpdate={birdToUpdate} updateOn={updateOn} updateOff={updateOff} token={props.token} fetchBirds={fetchBirds}/> : <></>}
         </Grid>
-        {updateActive ? <BirdEdit birdToUpdate={birdToUpdate} updateOff={updateOff} token={props.token} fetchBirds={fetchBirds} /> : <></>}
+        
       
     </Container>
   );
