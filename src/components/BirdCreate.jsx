@@ -5,6 +5,10 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+import { FormControlLabel } from '@material-ui/core';
+import Checkbox from '@material-ui/core/Checkbox'
+import Select from '@material-ui/core/Select'
+import MenuItem from '@material-ui/core/MenuItem'
 
 const BirdCreate = props => {
   const [ species, setSpecies ] = useState('');
@@ -13,15 +17,12 @@ const BirdCreate = props => {
   const [ time, setTime ] = useState('');
   const [ rarity, setRarity ] = useState('');
   const [ image_url, setImage_url] = useState('');
-  const [ secret, setSecret ] = useState('');
+  const [ secret, setSecret ] = useState('false');
 
-  // const triggerSpeciesInputChange = event => setSpecies(event.target.value);
-  // const triggerLocationInputChange = event => setLocation(event.target.value);
-  // const triggerDateInputChange = event => setDate(event.target.value);
-  // const triggerTimeInputChange = event => setTime(event.target.value);
-  // const triggerRarityInputChange = event => setRarity(event.target.value);
-  // const triggerSecretInputChange = event => setSecret(event.target.value);
 
+
+
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     fetch('http://localhost:3000/log/createlog', {
@@ -51,7 +52,7 @@ const BirdCreate = props => {
     <h3>Create an Entry!</h3>
     <Container>
     <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
                 autoComplete="Species"
                 name="species"
@@ -66,7 +67,7 @@ const BirdCreate = props => {
                 autoFocus
               />
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
@@ -86,6 +87,10 @@ const BirdCreate = props => {
                 fullWidth
                 id="date"
                 label="Date"
+                type="date"
+                InputLabelProps={{
+                shrink: true,
+                }}
                 onChange={(e) => setDate(e.target.value)}
                 name='date'
                 value={date}
@@ -98,6 +103,13 @@ const BirdCreate = props => {
                 required
                 fullWidth
                 name="time"
+                type="time"
+                InputLabelProps={{
+                shrink: true,
+                }}
+                inputProps={{
+                step: 300, // 5 min
+                }}
                 onChange={(e) => setTime(e.target.value)}
                 value={time}
                 label="Time"
@@ -106,7 +118,9 @@ const BirdCreate = props => {
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField
+            <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
                 variant="outlined"
                 required
                 fullWidth
@@ -116,34 +130,44 @@ const BirdCreate = props => {
                 label="Rarity"
                 id="rarity"
                 autoComplete="rarity"
-              />
+                >
+                  <MenuItem value={1}>Common</MenuItem>
+                  <MenuItem value={2}>Uncommon</MenuItem>
+                  <MenuItem value={3}>Rare</MenuItem>
+                  <MenuItem value={4}>Very Rare</MenuItem>
+                  <MenuItem value={5}>Legendary</MenuItem>
+                </Select>
+             
             </Grid>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
                 fullWidth
-                name="image"
+                name="upload-photo"
+                type="file"
                 onChange={(e) => setImage_url(e.target.value)}
                 value={image_url}
-                label="Image"
+                // label="Image"
                 id="image"
                 autoComplete="image"
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField
+              <FormControlLabel
                 variant="outlined"
                 required
                 fullWidth
                 name="secret"
                 onChange={(e) => setSecret(e.target.value)}
                 value={secret}
-                label="Secret"
+                label="Would you like this entry to be private?"
                 id="secret"
                 autoComplete="secret"
-              />
+                control={<Checkbox value="Yes" color="primary" />}
+          />  
             </Grid>
+            
           </Grid>
           <Button
             type="submit"

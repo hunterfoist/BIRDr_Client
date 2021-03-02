@@ -26,6 +26,7 @@ const BirdEdit = props => {
   const [ editDate, setEditDate ] = useState(props.birdToUpdate.date);
   const [ editRarity, setEditRarity ] = useState(props.birdToUpdate.rarity);
   const [ editSecret, setEditSecret ] = useState(props.birdToUpdate.secret);
+console.log('Hello from edit')
 
   const handleSubmit = (event, bird) => {
     event.preventDefault();
@@ -37,16 +38,25 @@ const BirdEdit = props => {
       }),
       body: JSON.stringify({log: { species: editSpecies, location: editLocation, time: editTime, date: editDate, rarity: editRarity, secret: editSecret }})
     })
-    .then(response => {
+    .then(response => response.json())
+    .then(logData => {
+      console.table(logData);
+      setEditSpecies('');
+      setEditLocation('');
+      setEditDate('');
+      setEditTime('');
+      setEditRarity('');
+      setEditSecret('');
       props.fetchBirds();
-      props.handleClose();
     })
-  };
+      props.updateOff();
+    }
   
 
 
+
   return(
-    <Dialog open={props.open} onClose={props.handleClose} aria-labelledby="form-dialog-title">
+    <Dialog open={props.updateOn} onClose={props.updateOff} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Update</DialogTitle>
         <DialogContent>
           <DialogContentText>
@@ -146,7 +156,7 @@ const BirdEdit = props => {
     </Container>
     </DialogContent>
         <DialogActions>
-          <Button onClick={props.handleClose} color="primary">
+          <Button onClick={handleSubmit} color="primary">
             Update
           </Button>
                  </DialogActions>

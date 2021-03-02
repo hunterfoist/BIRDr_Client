@@ -16,7 +16,7 @@ const useStyles = makeStyles({
   },
 });
 
-const BirdTable = props => {
+const BirdLog = (props) => {
   const [open, setOpen] = React.useState(false);
   
   const handleClickOpen = () => {
@@ -44,7 +44,7 @@ const BirdTable = props => {
         <TableContainer component={Paper}>
           <Table>
         <TableBody>
-        <TableRow key={bird.index}>
+        <TableRow key={index}>
               <TableCell component="th" scope="row">
                 {bird.species}</TableCell>
           <TableCell>{bird.location}</TableCell>
@@ -78,4 +78,4 @@ const BirdTable = props => {
     </>
   );
 };
-export default BirdTable;
+export default BirdLog;
