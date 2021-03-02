@@ -8,6 +8,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import BirdEdit from './BirdEdit';
 
 const useStyles = makeStyles({
   table: {
@@ -15,12 +16,20 @@ const useStyles = makeStyles({
   },
 });
 
-const BirdTable = props => {
+const BirdLog = props => {
+  const [open, setOpen] = React.useState(false);
   
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   const deleteBird = bird => {
 
 
-    fetch(`http://localhost:3000/log/deletelog${bird.id}`, {
+    fetch(`http://localhost:3000/log/deletelog/${bird.id}`, {
 
 
       method: 'DELETE',
@@ -35,10 +44,11 @@ const BirdTable = props => {
   const birdMapper = () => {
     return props.birds.map((bird, index) => {
       return(
+        <div>
         <TableContainer component={Paper}>
           <Table>
         <TableBody>
-        <TableRow key={bird.index}>
+        <TableRow key={index}>
               <TableCell component="th" scope="row">
                 {bird.species}</TableCell>
           <TableCell>{bird.location}</TableCell>
@@ -47,13 +57,15 @@ const BirdTable = props => {
           <TableCell>{bird.rarity}</TableCell>
           <TableCell>{bird.secret}</TableCell>
           <TableCell>
-            <Button color="warning" onClick={() => {props.editUpdateBird(bird); props.updateOn()}} >Update</Button>
+            <Button color="warning" onClick={() => {props.editUpdateBird(bird); handleClickOpen(); props.updateOn()}} >Update</Button>
             <Button color="danger" onClick={() => deleteBird(bird)}>Delete</Button>
           </TableCell>
         </TableRow>
         </TableBody>
         </Table>
         </TableContainer>
+        {/* <BirdEdit open={open} handleClose={handleClose} handleClickOpen={handleClickOpen}/> */}
+        </div>
       );
     });
   };
@@ -70,4 +82,4 @@ const BirdTable = props => {
     </>
   );
 };
-export default BirdTable;
+export default BirdLog;
