@@ -10,6 +10,7 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import {Form, FormGroup, Label, Input}  from 'reactstrap';
 
 function Copyright() {
   return (
@@ -78,7 +79,7 @@ export default function SignUp(props) {
         <Typography component="h1" variant="h5">
           Sign up!
         </Typography>
-        <form className={classes.form} noValidate>
+        <Form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -109,54 +110,26 @@ export default function SignUp(props) {
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                onChange={(e) => setUsername(e.target.value)}
-                name='username'
-                value={username}
-                autoComplete="email"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                inputProps={{ pattern:"(?=.*/d)(?=.*[a-z])(?=.*[A-Z]).{5,}" }}
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
+            <Label htmlFor='username'>Email</Label>
+              <Input type='email' placeholder='Enter valid email address' minlength='4' pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$" onChange={(e) => setUsername(e.target.value)} name='username' value={username}/>
+          
+            <Label htmlFor='password'>Password</Label>           
+            <Input type='password' placeholder='must contain' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters" onChange={(e) => setPassword(e.target.value)} name='password' value={password}/>
             </Grid>
             
           </Grid>
-          <Button
-            type="submit"
-            onClick={handleSubmit}
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
+          <Button type='submit'>
             Register Now!
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Link href="#" variant="body2">
+              <Button onClick={props.showLogin}>
                 Already a BIRDr member? Login 
                 
-              </Link>
+              </Button>
             </Grid>
           </Grid>
-        </form>
+        </Form>
       </div>
       <Box mt={5}>
         <Copyright />

@@ -12,6 +12,7 @@ import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import {Form, FormGroup, Label, Input}  from 'reactstrap';
 
 
 function Copyright() {
@@ -81,35 +82,11 @@ export default function Login(props) {
           Login
         </Typography>
         <form className={classes.form} noValidate>
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            // inputProps={['required', 'matchRegexp:/^S+@S+.S+$/']}
-            // error='good try'
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-            name="email"
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-            inputProps={{ pattern:"(?=.*/d)(?=.*[a-z])(?=.*[A-Z]).{5,}" }}
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
+          
+        <Label htmlFor='username'>Email</Label>
+                    <Input type='email' placeholder='Enter valid email address' pattern={"^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$"|| "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" } onChange={(e) => setUsername(e.target.value)} name='username' value={username}/>
+          <Label htmlFor='password'>Password</Label>           
+          <Input type='password' placeholder='must contain' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" onChange={(e) => setPassword(e.target.value)} name='password' value={password}/>
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
@@ -131,9 +108,9 @@ export default function Login(props) {
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
-              "No account? Register today"
-              </Link>
+              <Button onClick={props.showLogin}>
+              No account? Register today
+              </Button>
             </Grid>
           </Grid>
         </form>

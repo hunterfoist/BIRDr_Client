@@ -39,6 +39,7 @@ function App() {
     <div>
       <Nav clickLogout={clearToken}/>
       {protectedViews()}
+      
     </div>
   );
 }

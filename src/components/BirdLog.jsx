@@ -17,7 +17,9 @@ const useStyles = makeStyles({
 });
 
 const BirdLog = props => {
+
   const [open, setOpen] = React.useState(false);
+
   
   const handleClickOpen = () => {
     setOpen(true);
@@ -28,11 +30,8 @@ const BirdLog = props => {
   };
   const deleteBird = bird => {
 
-
-    fetch(`http://localhost:3000/log/deletelog/${bird.id}`, {
-
-
-      method: 'DELETE',
+  fetch(`http://localhost:3000/log/deletelog/${bird.id}`, {
+  method: 'DELETE',
       headers: new Headers({
         'Content-Type': 'application/json',
         'Authorization': props.token
