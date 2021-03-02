@@ -16,6 +16,8 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import Select from '@material-ui/core/Select'
+import MenuItem from '@material-ui/core/MenuItem'
 
 
 
@@ -99,6 +101,10 @@ console.log('Hello from edit')
                 fullWidth
                 id="date"
                 label="Date"
+                type="date"
+                InputLabelProps={{
+                shrink: true,
+                }}
                 onChange={(e) => setEditDate(e.target.value)}
                 name='date'
                 value={editDate}
@@ -111,6 +117,13 @@ console.log('Hello from edit')
                 required
                 fullWidth
                 name="time"
+                type="time"
+                InputLabelProps={{
+                shrink: true,
+                }}
+                inputProps={{
+                step: 300, // 5 min
+                }}
                 onChange={(e) => setEditTime(e.target.value)}
                 value={editTime}
                 label="Time"
@@ -119,7 +132,9 @@ console.log('Hello from edit')
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
                 variant="outlined"
                 required
                 fullWidth
@@ -129,20 +144,28 @@ console.log('Hello from edit')
                 label="Rarity"
                 id="rarity"
                 autoComplete="rarity"
-              />
+                >
+                  <MenuItem value={1}>Common</MenuItem>
+                  <MenuItem value={2}>Uncommon</MenuItem>
+                  <MenuItem value={3}>Rare</MenuItem>
+                  <MenuItem value={4}>Very Rare</MenuItem>
+                  <MenuItem value={5}>Legendary</MenuItem>
+                </Select>
+              
             </Grid>
             <Grid item xs={12}>
-              <TextField
+            <FormControlLabel
                 variant="outlined"
                 required
                 fullWidth
                 name="secret"
                 onChange={(e) => setEditSecret(e.target.value)}
                 value={editSecret}
-                label="Secret"
+                label="Would you like this entry to be private?"
                 id="secret"
                 autoComplete="secret"
-              />
+                control={<Checkbox value="Yes" color="primary" />}
+          /> 
             </Grid>
           </Grid>
     </Container>
