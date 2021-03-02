@@ -86,10 +86,11 @@ export default function Login(props) {
             margin="normal"
             required
             fullWidth
+            type='email'
             id="email"
             label="Email Address"
             inputProps= {{ pattern: "/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$/"}}
-            error= "need valid email"
+            // error= "need valid email"
             onChange={(e) => setUsername(e.target.value)}
             value={username}
             name="email"
@@ -104,7 +105,7 @@ export default function Login(props) {
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             inputProps={{ pattern:"(?=.*/d)(?=.*[a-z])(?=.*[A-Z]).{5,}" }}
-            error= "need valid email"
+            // error= "need valid email"
             name="password"
             label="Password"
             type="password"
