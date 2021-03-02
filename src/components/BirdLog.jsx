@@ -16,7 +16,9 @@ const useStyles = makeStyles({
   },
 });
 
-const BirdLog = (props) => {
+
+  const BirdLog = props => {
+
   const [open, setOpen] = React.useState(false);
   
   const handleClickOpen = () => {
@@ -27,7 +29,11 @@ const BirdLog = (props) => {
     setOpen(false);
   };
   const deleteBird = bird => {
-    fetch(`http://localhost:3000/log/deletelog${bird.id}`, {
+
+
+    fetch(`http://localhost:3000/log/deletelog/${bird.id}`, {
+
+
       method: 'DELETE',
       headers: new Headers({
         'Content-Type': 'application/json',
@@ -60,7 +66,6 @@ const BirdLog = (props) => {
         </TableBody>
         </Table>
         </TableContainer>
-        <BirdEdit open={open} handleClose={handleClose} handleClickOpen={handleClickOpen}/>
         </div>
       );
     });
@@ -70,7 +75,7 @@ const BirdLog = (props) => {
     <>
       <h3>Bird History</h3>
       
-      <Table>
+      <Table alignItem="baseline">
         <tbody>
           {birdMapper()}
         </tbody>

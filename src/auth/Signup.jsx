@@ -80,7 +80,7 @@ export default function SignUp(props) {
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
                 autoComplete="fname"
                 name="firstName"
@@ -152,6 +152,7 @@ export default function SignUp(props) {
             <Grid item>
               <Link href="#" variant="body2">
                 Already a BIRDr member? Login 
+                
               </Link>
             </Grid>
           </Grid>

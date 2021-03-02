@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -87,6 +88,8 @@ export default function Login(props) {
             fullWidth
             id="email"
             label="Email Address"
+            // inputProps={['required', 'matchRegexp:/^S+@S+.S+$/']}
+            // error='good try'
             onChange={(e) => setUsername(e.target.value)}
             value={username}
             name="email"
@@ -129,7 +132,7 @@ export default function Login(props) {
             </Grid>
             <Grid item>
               <Link href="#" variant="body2">
-                {"No account? Register today"}
+              "No account? Register today"
               </Link>
             </Grid>
           </Grid>
