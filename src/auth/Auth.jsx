@@ -7,7 +7,7 @@ import Login from './Login';
 
 const Auth = (props) => {
 
-    const [showLogin, setShowLogin] = useState(true);
+    const [showLogin, setShowLogin] = useState();
 
     function handleToggle(){
        
