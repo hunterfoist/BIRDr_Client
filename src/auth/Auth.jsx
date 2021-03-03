@@ -23,9 +23,9 @@ const Auth = (props) => {
         <Container className="auth-container">
             
                 <Grid container item xs='12'>
-                    {showLogin === true ? <Login updateToken={props.updateToken} handleToggle={props.handleToggle} /> : <Signup updateToken={props.updateToken} handleToggle={props.handleToggle}/>}
+                    {showLogin === true ? <Login updateToken={props.updateToken} handleToggle={handleToggle} /> : <Signup updateToken={props.updateToken} handleToggle={handleToggle}/>}
                 </Grid>
-                <Button onClick={handleToggle}>Changeover</Button>
+                
                 
                 
         </Container>
