@@ -12,6 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {Form, FormGroup, Label, Input}  from 'reactstrap';
 
+
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -34,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(2),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.secondary.dark,
   },
   form: {
     width: '100%', 
@@ -73,7 +74,7 @@ export default function SignUp(props) {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
+        <Avatar className={classes.avatar} src="/assets/birdrbracket.svg">
           
         </Avatar>
         <Typography component="h1" variant="h5">
@@ -82,27 +83,22 @@ export default function SignUp(props) {
         <Form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <TextField
+              <Input type='name'
+                placeholder='Enter your first name'
                 autoComplete="fname"
                 name="firstName"
                 variant="outlined"
                 required
-                fullWidth
-                
                 onChange={(e) => setFirst_name(e.target.value)}
                 value={first_name}
                 id="firstName"
-                label="First Name"
-                autoFocus
+               
               />
             </Grid>
             <Grid item xs={12}>
-              <TextField
-                variant="outlined"
+              <Label htmlFor='lastname'>Last Name</Label>
+              <Input type='name' placeholder='Enter your last name'
                 required
-                fullWidth
-                id="lastName"
-                label="Last Name"
                 onChange={(e) => setLast_name(e.target.value)}
                 value={last_name}
                 name="lastName"
@@ -111,19 +107,26 @@ export default function SignUp(props) {
             </Grid>
             <Grid item xs={12}>
             <Label htmlFor='username'>Email</Label>
-              <Input type='email' placeholder='Enter valid email address' minlength='4' pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$" onChange={(e) => setUsername(e.target.value)} name='username' value={username}/>
+              <Input type='email' placeholder='Enter valid email address' pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$" required onChange={(e) => setUsername(e.target.value)} name='username' value={username}/>
           
             <Label htmlFor='password'>Password</Label>           
-            <Input type='password' placeholder='must contain' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters" onChange={(e) => setPassword(e.target.value)} name='password' value={password}/>
+            <Input type='password' placeholder='must contain' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters" required onChange={(e) => setPassword(e.target.value)} name='password' value={password}/>
             </Grid>
             
           </Grid>
-          <Button type='submit'>
-            Register Now!
+          <Button
+            type="submit"
+            onClick={handleSubmit}
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            Sign In
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              <Button onClick={props.showLogin}>
+              <Button onClick={props.handleToggle}>
                 Already a BIRDr member? Login 
                 
               </Button>

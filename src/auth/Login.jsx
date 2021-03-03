@@ -86,7 +86,7 @@ export default function Login(props) {
         <Label htmlFor='username'>Email</Label>
                     <Input type='email' placeholder='Enter valid email address' pattern={"^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$"|| "(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" } onChange={(e) => setUsername(e.target.value)} name='username' value={username}/>
           <Label htmlFor='password'>Password</Label>           
-          <Input type='password' placeholder='must contain' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" onChange={(e) => setPassword(e.target.value)} name='password' value={password}/>
+          <Input type='password' placeholder='Min 5 characters with Capital and Lowercase' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" onChange={(e) => setPassword(e.target.value)} name='password' value={password}/>
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
             label="Remember me"
@@ -108,7 +108,7 @@ export default function Login(props) {
               </Link>
             </Grid>
             <Grid item>
-              <Button onClick={props.showLogin}>
+              <Button onClick={props.handleToggle}>
               No account? Register today
               </Button>
             </Grid>
