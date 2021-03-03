@@ -10,6 +10,7 @@ function ImageUpload() {
         const data = new FormData()
         data.append('file', files[0])
         data.append('upload_preset', 'cloudinary-birdr')
+        data.append('api_key', '748883662632623')
         setLoading(true)
         const res = await fetch('http://api.cloudinary.com/v1.1/birdr/image/upload', {
             method: 'POST',
