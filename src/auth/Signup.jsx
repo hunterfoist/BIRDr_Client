@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {Form, FormGroup, Label, Input}  from 'reactstrap';
-import Login from './Login';
+
 
 function Copyright() {
   return (
@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(2),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.secondary.dark,
   },
   form: {
     width: '100%', 
@@ -74,7 +74,7 @@ export default function SignUp(props) {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
+        <Avatar className={classes.avatar} src="/assets/birdrbracket.svg">
           
         </Avatar>
         <Typography component="h1" variant="h5">
@@ -114,8 +114,15 @@ export default function SignUp(props) {
             </Grid>
             
           </Grid>
-          <Button type='submit'>
-            Register Now!
+          <Button
+            type="submit"
+            onClick={handleSubmit}
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+          >
+            Sign In
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
