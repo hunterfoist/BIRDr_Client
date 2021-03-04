@@ -4,6 +4,18 @@ import Grid from '@material-ui/core/Grid';
 import BirdCreate from './BirdCreate';
 import BirdLog from './BirdLog';
 import BirdEdit from './BirdEdit';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#a1cae2',
+    },
+    secondary: {
+      main: '#eae3cb',
+    },
+  },
+});
 
 const BirdNest = props => {
 
@@ -36,20 +48,17 @@ const BirdNest = props => {
 
 
   return(
-    <Container>
-     
+    <Container flexDirection="row" alignItems="flex-start">
+     <Grid container xs={12}>
         <Grid container item xs="3">
           <BirdCreate fetchBirds={fetchBirds} token={props.token} />
         </Grid>
-        <Grid container item xs="9">
-
-
-        <BirdLog birds={birds} editUpdateBird={editUpdateBird} updateOn={updateOn} fetchBirds={fetchBirds} token={props.token} />
-
-        {updateActive ? <BirdEdit birdToUpdate={birdToUpdate} updateOn={updateOn} updateOff={updateOff} token={props.token} fetchBirds={fetchBirds}/> : <></>}
+        <Grid container item xs="9" alignItems="flex-start">
+        <BirdLog birds={birds} editUpdateBird={editUpdateBird} updateOn={updateOn} fetchBirds={fetchBirds} token={props.token} /> 
+          {updateActive ? <BirdEdit birdToUpdate={birdToUpdate} updateOn={updateOn} updateOff={updateOff} token={props.token} fetchBirds={fetchBirds}/> : <></>}
         </Grid>
-        
-      
+        </Grid>
+
     </Container>
   );
 };

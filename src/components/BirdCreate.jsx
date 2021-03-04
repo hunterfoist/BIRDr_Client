@@ -21,9 +21,26 @@ const BirdCreate = props => {
 
 
 
+  const uploadImage = async e => {
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'cloudinary-birdr')
+    console.log(data)
+    const res = await fetch('https://api.cloudinary.com/v1_1/birdr/image/upload', {
+        method: 'POST',
+        body: data
+    })
+    const file = await res.json()
 
-  
+    const image_url=file.secure_url
+    console.log(image_url)
+    setImage_url(file.secure_url)
+    
+}
+
   const handleSubmit = (event) => {
+    
     event.preventDefault();
     fetch('http://localhost:3000/log/createlog', {
       method: 'POST',
@@ -147,8 +164,9 @@ const BirdCreate = props => {
                 fullWidth
                 name="upload-photo"
                 type="file"
-                onChange={(e) => setImage_url(e.target.value)}
-                value={image_url}
+                onChange={uploadImage}
+                //onChange={(e) => setImage_url(e.target.value)}
+                
                 // label="Image"
                 id="image"
                 autoComplete="image"
