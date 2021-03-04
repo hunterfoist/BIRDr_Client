@@ -25,13 +25,13 @@ const Auth = (props) => {
         
         <Container className="auth-container">
 <div>
-            <Jumbotron  className="w-100" style={{backgroundImage: `url('https://images.unsplash.com/photo-1512363068617-af3fc4e7954e?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1398&q=80')` }}>
+            <Jumbotron  className="w-100" style={{backgroundImage: `url('https://images.unsplash.com/photo-1562263882-29e401372525?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1532&q=80')` }}>
         <Container fluid>
-          <h1 className="display-3 text-light"  >Welcome to BIRDr</h1>
-          <h2 className="lead text-light">BIRDr is the premiere site for bird enthusiasts!</h2>
+          <h1 className="display-3 text-dark"  >Welcome to BIRDr</h1>
+          <h2 className="lead text-dark">BIRDr is the premiere site for bird enthusiasts!</h2>
           <hr className="my-2" />
           <br/>
-          <p className="text-light">BIRDr is the premiere site for bird enthusiasts!</p>
+          <p className="text-dark">BIRDr is the premiere site for bird enthusiasts!</p>
           <br/>
           <br/>
           <br/>
