@@ -44,7 +44,7 @@ const BirdLog = props => {
     return props.birds.map((bird, index) => {
       return(
         <div>
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} xs='8'>
           <Table>
         <TableBody>
         <TableRow key={index}>
