@@ -34,7 +34,8 @@ const BirdCreate = props => {
     const file = await res.json()
 
     const image_url=file.secure_url
-    console.log(image_url)
+    //console.log(image_url)
+    setImage_url(image_url)
     
 }
 
