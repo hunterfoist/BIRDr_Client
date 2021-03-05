@@ -1,11 +1,13 @@
 import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import MenuIcon from '@material-ui/icons/Menu';
+import MenuIcon from '../assets/birdr.png';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import birdr from "../assets/birdr.png";
+
 
 
 
@@ -18,7 +20,7 @@ const Sitebar = (props) => {
 
     const useStyles = makeStyles((theme) => ({
         root: {
-          flexGrow: 1,
+          flexGrow: 1, 
         },
         menuButton: {
           marginRight: theme.spacing(2),
@@ -26,15 +28,19 @@ const Sitebar = (props) => {
         title: {
           flexGrow: 1,
         },
+        logo: {
+          maxWidth: 40,
+          marginRight: '20px'
+        }
       }));
 
     const classes = useStyles();
     return (
         
         
-        <AppBar position="static" color="secondary">
-        <Toolbar>
-          
+        <AppBar position="static" style={{backgroundColor: 'lightBlue'}} >
+        <Toolbar style={{color: 'darkBlue'}}>
+        <img src={birdr} alt="logo" className={classes.logo} />
           <Typography variant="h6" className={classes.title}>
             BIRDr
           </Typography>

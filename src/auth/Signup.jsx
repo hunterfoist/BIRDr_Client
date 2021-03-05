@@ -80,9 +80,11 @@ export default function SignUp(props) {
         <Typography component="h1" variant="h5">
           Sign up!
         </Typography>
+        <br/>
         <Form onSubmit={handleSubmit}>
-          <Grid container spacing={2}>
+          <Grid container spacing={1}>
             <Grid item xs={12}>
+            <Label htmlFor='lastname'>First Name</Label>
               <Input type='name'
                 placeholder='Enter your first name'
                 autoComplete="fname"

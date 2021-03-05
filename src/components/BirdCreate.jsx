@@ -66,9 +66,16 @@ const BirdCreate = props => {
 
   return(
     <>
-    <h3>Create an Entry!</h3>
+    
+
+    
+  
     <Container alignItem="baseline">
-      
+    <br/>
+    <br/>
+    <br/>
+    <h3>Create an Entry!</h3>
+    <br/>
     <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -135,7 +142,7 @@ const BirdCreate = props => {
                 autoComplete="time"
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12}>Rarity
             <Select
                 labelId="demo-simple-select-label"
                 id="demo-simple-select"
@@ -147,7 +154,7 @@ const BirdCreate = props => {
                 value={rarity}
                 label="Rarity"
                 id="rarity"
-                autoComplete="rarity"
+                autoComplete="Rarity"
                 >
                   <MenuItem value={1}>Common</MenuItem>
                   <MenuItem value={2}>Uncommon</MenuItem>
@@ -188,7 +195,7 @@ const BirdCreate = props => {
             </Grid>
             
           </Grid>
-          <Button
+          <Button style={{backgroundColor: 'lightBlue', color: 'darkblue'}}
             type="submit"
             onClick={handleSubmit}
             fullWidth
@@ -196,7 +203,7 @@ const BirdCreate = props => {
             color="primary"
           >
             Create Log!
-          </Button>
+          </Button >
     </Container>
     </>
   );
