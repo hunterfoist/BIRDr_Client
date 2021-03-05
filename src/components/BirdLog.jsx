@@ -62,45 +62,7 @@ const useStyles = makeStyles({
     },
   });
   const classes = useStyles();
-  // const birdMapper = () => {
-  //   // return props.birds.map((bird, index) => {
-  //     return(
-  //       <div>
-  //         <Card className={classes.root}>
-  //     <CardActionArea>
-  //       <CardMedia
-  //         className={classes.media}
-  //         image={bird.image_id}
-  //         title="Contemplative Reptile"
-  //       />
-  //       <CardContent>
-  //         <Typography align='center' gutterBottom variant="h5" component="h2">
-  //         {bird.species}
-  //         </Typography>
-  //         <Typography align='center' variant="body2" color="textSecondary" component="p">
-  //         {bird.location}
-  //         </Typography>
-  //         <Typography align='center' variant="body2" color="textSecondary" component="p">
-  //         {bird.date} || {bird.time}
-  //         </Typography>
-  //         <Typography align='center' variant="body2" color="textSecondary" component="p">
-  //         {bird.rarity}
-  //         </Typography>
-  //         <Typography align='center' variant="body2" color="textSecondary" component="p">
-  //         {bird.secret}
-  //         </Typography>
-  //       </CardContent>
-  //     </CardActionArea>
-  //     <CardActions>
-  //     <Button  color="warning" onClick={() => {props.editUpdateBird(bird); handleClickOpen(); props.updateOn()}} >Update</Button>
-  //     <Button color="danger" onClick={() => deleteBird(bird)}>Delete</Button>
-  //     </CardActions>
-  //   </Card>
-        
-  //       </div>
-  //     );
-  //   // });
-  // };
+ 
   
   return(
     <>
