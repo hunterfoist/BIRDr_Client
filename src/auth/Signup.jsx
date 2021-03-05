@@ -83,6 +83,7 @@ export default function SignUp(props) {
         <Form onSubmit={handleSubmit}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
+            <Label htmlFor='firstname'>First Name</Label>
               <Input type='name'
                 placeholder='Enter your first name'
                 autoComplete="fname"
@@ -110,7 +111,7 @@ export default function SignUp(props) {
               <Input type='email' placeholder='Enter valid email address' pattern="^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$" required onChange={(e) => setUsername(e.target.value)} name='username' value={username}/>
           
             <Label htmlFor='password'>Password</Label>           
-            <Input type='password' placeholder='must contain' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 5 or more characters" required onChange={(e) => setPassword(e.target.value)} name='password' value={password}/>
+            <Input type='password' placeholder='must contain' pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,}"  required onChange={(e) => setPassword(e.target.value)} name='password' value={password}/>
             </Grid>
             
           </Grid>
