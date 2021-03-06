@@ -1,0 +1,6 @@
+heroku create birdr-client --buildpack https://github.com/mars/create-react-app-buildpack.git
+
+https://birdr-client.herokuapp.com/
+
+git add . 
+git commit -m "heroku deploy"
