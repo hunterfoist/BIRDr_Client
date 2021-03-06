@@ -52,7 +52,7 @@ const BirdNest = props => {
 
 
   return(
-    <Container flexDirection="row" alignItems="flex-start">
+    <Container flexDirection="row" alignItems="flex-start" mt={2}>
      <Grid container xs={12}>
         <Grid container item xs="3">
           <BirdCreate fetchBirds={fetchBirds} token={props.token} />

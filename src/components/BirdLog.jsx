@@ -14,6 +14,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import { sizing } from '@material-ui/system';
 
 import BirdEdit from './BirdEdit';
 
@@ -70,7 +71,7 @@ const useStyles = makeStyles({
     
       {/* <Table alignItem="baseline">
         <tbody> */}
-        <Card className={classes.root}>
+        <Card className={classes.root} style={{ width: '100%' }}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
@@ -87,17 +88,16 @@ const useStyles = makeStyles({
           <Typography align='center' variant="body2" color="textSecondary" component="p">
           {props.bird.date} || {props.bird.time}
           </Typography>
-          <Typography align='center' variant="body2" color="textSecondary" component="p">
-          {props.bird.rarity}
+          <Typography align='center' variant="body2" color="textSecondary" component="p">Rarity Rating: {props.bird.rarity}
           </Typography>
           <Typography align='center' variant="body2" color="textSecondary" component="p">
           {props.bird.secret}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
+      <CardActions style={{justifyContent: 'center'}}>
       <Button  color="warning" onClick={() => {props.editUpdateBird(props.bird); handleClickOpen(); props.updateOn()}} >Update</Button>
-      <Button color="danger" onClick={() => deleteBird(props.bird)}>Delete</Button>
+      <Button  color="danger" onClick={() => deleteBird(props.bird)}>Delete</Button>
       </CardActions>
     </Card>
         {/* </tbody>
