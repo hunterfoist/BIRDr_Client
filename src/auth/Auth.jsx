@@ -5,8 +5,16 @@ import Grid from '@material-ui/core/Grid';
 import Signup from './Signup';
 import Login from './Login';
 import { Jumbotron } from 'reactstrap';
+import Typography from '@material-ui/core/Typography';
+import birdr from "../assets/birdrrbracket.svg";
+import { makeStyles } from '@material-ui/core/styles';
+import { ReactComponent as BirdrIcon } from "../assets/birdrrbracket.svg";
+import SvgIcon from "@material-ui/core/SvgIcon";
+
+
 
 const Auth = (props) => {
+  
 
     const [showLogin, setShowLogin] = useState();
 
@@ -18,7 +26,41 @@ const Auth = (props) => {
             setShowLogin(true)
         }
     }
+    const useStyles = makeStyles((theme) => ({
+      palette: {
+        primary: {
+          main: '#aecbea',
+        },
+        secondary: {
+          main: '#c2b092',
+        },
+      },
+      paper: {
+        marginTop: theme.spacing(8),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      },
+      BirdrIcon: {
+        margin: theme.spacing(1),
+        backgroundColor: '#c2b092',
+      },
+      form: {
+        width: '100%', 
+        marginTop: theme.spacing(1),
+      },
+      submit: {
+        margin: theme.spacing(3, 0, 2),
+        backgroundColor: '#c2b092',
+      },
+      logo: {
+        maxWidth: 100,
+        marginRight: '20px'
+      },
+    }));
+    
 
+    const classes = useStyles();
 
     return (
         
@@ -27,15 +69,16 @@ const Auth = (props) => {
 <div>
             <Jumbotron  className="w-100" style={{backgroundImage: `url('https://images.unsplash.com/photo-1562263882-29e401372525?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1532&q=80')` }}>
         <Container fluid>
-          <h1 className="display-3 text-dark"  >Welcome to BIRDr</h1>
-          <h2 className="lead text-dark">BIRDr is the premiere site for bird enthusiasts!</h2>
+          <Typography><h1 className="display-3 text-dark"  >Welcome to BIRDr <img src={birdr} alt="logo" className={classes.logo} /></h1>
+          <h2 className="lead text-dark">The premiere site for bird enthusiasts!</h2>
           <hr className="my-2" />
           <br/>
-          <p className="text-dark">BIRDr is the premiere site for bird enthusiasts!</p>
+          <p className="text-dark">Here at BIRDr, we take bird watching seriously. Like, really seriously. <br></br> That's why we've created a place for you to catalog all of your prized fletchlings. <br></br></p>
           <br/>
           <br/>
-          <br/>
-          <br/>
+          <p className="text-dark">Watch. Snap. Watch some more. The options are unlimited... <br></br></p>
+          
+          </Typography>
         </Container>
       </Jumbotron>
     </div>

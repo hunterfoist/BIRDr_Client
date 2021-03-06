@@ -14,6 +14,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import { sizing } from '@material-ui/system';
 
 import BirdEdit from './BirdEdit';
 
@@ -62,55 +63,45 @@ const useStyles = makeStyles({
     },
   });
   const classes = useStyles();
-  const birdMapper = () => {
-    return props.birds.map((bird, index) => {
-      return(
-        <div>
-          <Card className={classes.root}>
+ 
+  
+  return(
+    <>
+      
+    
+      {/* <Table alignItem="baseline">
+        <tbody> */}
+        <Card className={classes.root} style={{ width: '100%' }}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={bird.image_id}
+          image={props.bird.image_id}
           title="Contemplative Reptile"
         />
         <CardContent>
           <Typography align='center' gutterBottom variant="h5" component="h2">
-          {bird.species}
+          {props.bird.species}
           </Typography>
           <Typography align='center' variant="body2" color="textSecondary" component="p">
-          {bird.location}
+          {props.bird.location}
           </Typography>
           <Typography align='center' variant="body2" color="textSecondary" component="p">
-          {bird.date} || {bird.time}
+          {props.bird.date} || {props.bird.time}
+          </Typography>
+          <Typography align='center' variant="body2" color="textSecondary" component="p">Rarity Rating: {props.bird.rarity}
           </Typography>
           <Typography align='center' variant="body2" color="textSecondary" component="p">
-          {bird.rarity}
-          </Typography>
-          <Typography align='center' variant="body2" color="textSecondary" component="p">
-          {bird.secret}
+          {props.bird.secret}
           </Typography>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-      <Button  color="warning" onClick={() => {props.editUpdateBird(bird); handleClickOpen(); props.updateOn()}} >Update</Button>
-      <Button color="danger" onClick={() => deleteBird(bird)}>Delete</Button>
+      <CardActions style={{justifyContent: 'center'}}>
+      <Button  color="warning" onClick={() => {props.editUpdateBird(props.bird); handleClickOpen(); props.updateOn()}} >Update</Button>
+      <Button  color="danger" onClick={() => deleteBird(props.bird)}>Delete</Button>
       </CardActions>
     </Card>
-        
-        </div>
-      );
-    });
-  };
-  
-  return(
-    <>
-      <h3>Bird History</h3>
-      
-      <Table alignItem="baseline">
-        <tbody>
-          {birdMapper()}
-        </tbody>
-      </Table>
+        {/* </tbody>
+      </Table> */}
     </>
   );
 };
