@@ -11,38 +11,38 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {Form, FormGroup, Label, Input}  from 'reactstrap';
+import { ReactComponent as BirdrIcon } from "../assets/birdrrbracket.svg";
+import SvgIcon from "@material-ui/core/SvgIcon";
 
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        BIRDr
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+
 
 const useStyles = makeStyles((theme) => ({
+  palette: {
+    primary: {
+      main: '#aecbea',
+    },
+    secondary: {
+      main: '#eae3cb',
+    },
+  },
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
   },
-  avatar: {
-    margin: theme.spacing(2),
-    backgroundColor: theme.palette.secondary.dark,
+  BirdrIcon: {
+    margin: theme.spacing(1),
+    backgroundColor: '#c2b092',
   },
   form: {
     width: '100%', 
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(1),
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
+    backgroundColor: '#eae3cb',
   },
 }));
 
@@ -74,9 +74,7 @@ export default function SignUp(props) {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar} src="/assets/birdrbracket.svg">
-          
-        </Avatar>
+      <SvgIcon><BirdrIcon className={classes.avatar}/></SvgIcon>
         <Typography component="h1" variant="h5">
           Sign up!
         </Typography>
@@ -121,10 +119,10 @@ export default function SignUp(props) {
             onClick={handleSubmit}
             fullWidth
             variant="contained"
-            color="primary"
+            color=""
             className={classes.submit}
           >
-            Sign In
+            Join Birdr!
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
@@ -136,9 +134,7 @@ export default function SignUp(props) {
           </Grid>
         </Form>
       </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
+
     </Container>
   );
 }

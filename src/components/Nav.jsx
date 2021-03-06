@@ -6,7 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import birdr from "../assets/birdr.png";
+import birdr from "../assets/birdrrbracket.svg";
 
 
 
@@ -19,6 +19,14 @@ const Sitebar = (props) => {
     }
 
     const useStyles = makeStyles((theme) => ({
+        palette: {
+          primary: {
+            main: '#aecbea',
+          },
+          secondary: {
+            main: '#c2b092',
+          },
+        },    
         root: {
           flexGrow: 1, 
         },
@@ -38,8 +46,8 @@ const Sitebar = (props) => {
     return (
         
         
-        <AppBar position="static" style={{backgroundColor: 'lightBlue'}} >
-        <Toolbar style={{color: 'darkBlue'}}>
+        <AppBar position="static" style={{backgroundColor: '#aecbea'}} >
+        <Toolbar style={{color: '#000000'}}>
         <img src={birdr} alt="logo" className={classes.logo} />
           <Typography variant="h6" className={classes.title}>
             BIRDr

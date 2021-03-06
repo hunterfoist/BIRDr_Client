@@ -9,6 +9,41 @@ import { FormControlLabel } from '@material-ui/core';
 import Checkbox from '@material-ui/core/Checkbox'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
+import { ReactComponent as BirdrIcon } from "../assets/birdrrbracket.svg";
+import SvgIcon from "@material-ui/core/SvgIcon";
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  palette: {
+    primary: {
+      main: '#aecbea',
+    },
+    secondary: {
+      main: '#c2b092',
+    },
+  },
+  paper: {
+    marginTop: theme.spacing(8),
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+  BirdrIcon: {
+    margin: theme.spacing(1),
+    backgroundColor: '#c2b092',
+  },
+  form: {
+    width: '100%', 
+    marginTop: theme.spacing(1),
+  },
+  button: {
+    margin: theme.spacing(3, 0, 2),
+    backgroundColor: '#eae3cb',
+  },
+  checkbox: {
+    backgroundColor: '#b65f50',
+  },
+}));
 
 const BirdCreate = props => {
   const [ species, setSpecies ] = useState('');
@@ -190,17 +225,16 @@ const BirdCreate = props => {
                 label="Would you like this entry to be private?"
                 id="secret"
                 autoComplete="secret"
-                control={<Checkbox value="Yes" color="primary" />}
+                control={<Checkbox value="Yes"/>}
           />  
             </Grid>
             
           </Grid>
-          <Button style={{backgroundColor: 'lightBlue', color: 'darkblue'}}
+          <Button
             type="submit"
             onClick={handleSubmit}
             fullWidth
             variant="contained"
-            color="primary"
           >
             Create Log!
           </Button >

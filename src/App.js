@@ -4,12 +4,22 @@ import React, { useState, useEffect } from 'react';
 import Auth from './auth/Auth';
 import BirdNest from './components/BirdNest';
 import Nav from './components/Nav';
+import Link from '@material-ui/core/Link';
+import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 
-
-
-
-
-
+function Copyright() {
+  return (
+    <Typography variant="body2" color="textSecondary" align="center">
+      {'Copyright © '}
+      <Link color="inherit" href="https://material-ui.com/">
+        BIRDr
+      </Link>{' '}
+      {new Date().getFullYear()}
+      {'.'}
+    </Typography>
+  );
+}
 
 function App() {
 
@@ -41,7 +51,9 @@ function App() {
     <div>
       <Nav clickLogout={clearToken}/>
       {protectedViews()}
-      
+      <Box>
+        <Copyright />
+      </Box>
     </div>
   );
 }

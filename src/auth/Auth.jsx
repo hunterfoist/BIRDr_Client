@@ -6,11 +6,15 @@ import Signup from './Signup';
 import Login from './Login';
 import { Jumbotron } from 'reactstrap';
 import Typography from '@material-ui/core/Typography';
-import birdr from "../assets/birdr.png";
+import birdr from "../assets/birdrrbracket.svg";
 import { makeStyles } from '@material-ui/core/styles';
+import { ReactComponent as BirdrIcon } from "../assets/birdrrbracket.svg";
+import SvgIcon from "@material-ui/core/SvgIcon";
+
 
 
 const Auth = (props) => {
+  
 
     const [showLogin, setShowLogin] = useState();
 
@@ -22,13 +26,39 @@ const Auth = (props) => {
             setShowLogin(true)
         }
     }
-
     const useStyles = makeStyles((theme) => ({
-        logo: {
-          maxWidth: 100,
-          marginRight: '20px'
-        }
-      }));
+      palette: {
+        primary: {
+          main: '#aecbea',
+        },
+        secondary: {
+          main: '#c2b092',
+        },
+      },
+      paper: {
+        marginTop: theme.spacing(8),
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      },
+      BirdrIcon: {
+        margin: theme.spacing(1),
+        backgroundColor: '#c2b092',
+      },
+      form: {
+        width: '100%', 
+        marginTop: theme.spacing(1),
+      },
+      submit: {
+        margin: theme.spacing(3, 0, 2),
+        backgroundColor: '#c2b092',
+      },
+      logo: {
+        maxWidth: 100,
+        marginRight: '20px'
+      },
+    }));
+    
 
     const classes = useStyles();
 
