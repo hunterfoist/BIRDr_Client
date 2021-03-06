@@ -46,10 +46,6 @@ const BirdNest = props => {
 
   useEffect(() => fetchBirds(), [])
 
-  function displayCards() {
-    return birds.length > 0 ? birds.map((bird) => <BirdLog bird={bird} birds={birds} editUpdateBird={editUpdateBird} updateOn={updateOn} fetchBirds={fetchBirds} token={props.token} />) : null;
-}
-
 
   return(
     <Container flexDirection="row" alignItems="flex-start" mt={2}>
@@ -58,8 +54,7 @@ const BirdNest = props => {
           <BirdCreate fetchBirds={fetchBirds} token={props.token} />
         </Grid>
         <Grid container item xs="9" alignItems="flex-start">
-          {displayCards()}
-        {/* <BirdLog birds={birds} editUpdateBird={editUpdateBird} updateOn={updateOn} fetchBirds={fetchBirds} token={props.token} />  */}
+        <BirdLog birds={birds} editUpdateBird={editUpdateBird} updateOn={updateOn} fetchBirds={fetchBirds} token={props.token} /> 
           {updateActive ? <BirdEdit birdToUpdate={birdToUpdate} updateOn={updateOn} updateOff={updateOff} token={props.token} fetchBirds={fetchBirds}/> : <></>}
         </Grid>
         </Grid>

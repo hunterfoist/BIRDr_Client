@@ -14,7 +14,11 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+<<<<<<< HEAD
 import { sizing } from '@material-ui/system';
+=======
+import BirdChild from './BirdChild';
+>>>>>>> a0dec377e3560dafff4d26e267a231be21a1dbae
 
 import BirdEdit from './BirdEdit';
 
@@ -52,22 +56,26 @@ const useStyles = makeStyles({
   };
 
   
-  const useStyles = makeStyles({
-    root: {
-      maxWidth: 340,
-      margin: 20,
+  
+  
+  // const birdMapper = () => {
+  //   return props.birds.map((bird, index) => {
       
-    },
-    media: {
-      height: 240,
-    },
-  });
-  const classes = useStyles();
- 
+      
+  //     return(
+  //     <div>
+    
+        
+  //       </div>
+  //     );
+  //   });
+  // };
   
   return(
     <>
+      <h3>Bird History</h3>
       
+<<<<<<< HEAD
     
       {/* <Table alignItem="baseline">
         <tbody> */}
@@ -102,6 +110,13 @@ const useStyles = makeStyles({
     </Card>
         {/* </tbody>
       </Table> */}
+=======
+      <Table alignItem="baseline">
+        <tbody>
+          {displayCards()}
+        </tbody>
+      </Table>
+>>>>>>> a0dec377e3560dafff4d26e267a231be21a1dbae
     </>
   );
 };

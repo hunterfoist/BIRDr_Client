@@ -101,6 +101,7 @@ const BirdCreate = props => {
 
   return(
     <>
+<<<<<<< HEAD
     
 
     
@@ -111,6 +112,11 @@ const BirdCreate = props => {
     <br/>
     <h3>Create an Entry!</h3>
     <br/>
+=======
+    <h3>Create an Entry!</h3>
+    <Container>
+      
+>>>>>>> a0dec377e3560dafff4d26e267a231be21a1dbae
     <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
