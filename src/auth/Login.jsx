@@ -15,6 +15,7 @@ import Container from '@material-ui/core/Container';
 import {Form, FormGroup, Label, Input}  from 'reactstrap';
 import { ReactComponent as BirdrIcon } from "../assets/birdrrbracket.svg";
 import SvgIcon from "@material-ui/core/SvgIcon";
+import APIURL from '../helpers/environment';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -59,7 +60,7 @@ export default function Login(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        fetch('http://localhost:3000/user/login', {
+        fetch(`${APIURL}/user/login`, {
            method: 'POST',
            body: JSON.stringify({user: {username: username, password: password}}),
            headers: new Headers({

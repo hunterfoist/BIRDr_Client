@@ -17,6 +17,7 @@ import Typography from '@material-ui/core/Typography';
 import { sizing } from '@material-ui/system';
 
 import BirdEdit from './BirdEdit';
+import APIURL from '../helpers/environment';
 
 const useStyles = makeStyles({
   table: {
@@ -41,7 +42,7 @@ const useStyles = makeStyles({
   };
   const deleteBird = bird => {
 
-  fetch(`http://localhost:3000/log/deletelog/${bird.id}`, {
+  fetch(`${APIURL}/log/deletelog/${bird.id}`, {
   method: 'DELETE',
       headers: new Headers({
         'Content-Type': 'application/json',

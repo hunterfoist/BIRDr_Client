@@ -13,6 +13,7 @@ import Container from '@material-ui/core/Container';
 import {Form, FormGroup, Label, Input}  from 'reactstrap';
 import { ReactComponent as BirdrIcon } from "../assets/birdrrbracket.svg";
 import SvgIcon from "@material-ui/core/SvgIcon";
+import APIURL from '../helpers/environment';
 
 
 
@@ -56,7 +57,7 @@ export default function SignUp(props) {
 
     let handleSubmit = (event) => {
         event.preventDefault();
-        fetch('http://localhost:3000/user/register', {
+        fetch(`${APIURL}/user/register`, {
            method: 'POST',
            body: JSON.stringify({user: {username: username, password: password, first_name: first_name, last_name: last_name}}),
            headers: new Headers({

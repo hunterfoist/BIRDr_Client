@@ -5,6 +5,7 @@ import BirdCreate from './BirdCreate';
 import BirdLog from './BirdLog';
 import BirdEdit from './BirdEdit';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import APIURL from '../helpers/environment';
 
 const theme = createMuiTheme({
   palette: {
@@ -24,7 +25,7 @@ const BirdNest = props => {
   const [ birdToUpdate, setBirdToUpdate ] = useState({});
 
   const fetchBirds = () => {
-    fetch('http://localhost:3000/log/getlogs', {
+    fetch(`${APIURL}/log/getlogs`, {
       method: 'GET',
       headers: new Headers({
         'Content-Type': 'application/json',

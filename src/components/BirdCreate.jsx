@@ -12,6 +12,7 @@ import MenuItem from '@material-ui/core/MenuItem'
 import { ReactComponent as BirdrIcon } from "../assets/birdrrbracket.svg";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import { makeStyles } from '@material-ui/core/styles';
+import APIURL from '../helpers/environment';
 
 const useStyles = makeStyles((theme) => ({
   palette: {
@@ -77,7 +78,7 @@ const BirdCreate = props => {
   const handleSubmit = (event) => {
     
     event.preventDefault();
-    fetch('http://localhost:3000/log/createlog', {
+    fetch(`${APIURL}/log/createlog`, {
       method: 'POST',
       headers: new Headers({
         'Content-Type': 'application/json',

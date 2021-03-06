@@ -18,6 +18,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
+import APIURL from '../helpers/environment';
 
 
 
@@ -33,7 +34,7 @@ console.log('Hello from edit')
 
   const handleSubmit = (event, bird) => {
     event.preventDefault();
-    fetch(`http://localhost:3000/log/updatelog/${props.birdToUpdate.id}`, {
+    fetch(`${APIURL}/log/updatelog/${props.birdToUpdate.id}`, {
       method: 'PUT',
       headers: new Headers({
         'Content-Type': 'application/json',
