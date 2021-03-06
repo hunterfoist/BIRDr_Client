@@ -9,7 +9,7 @@ switch (window.location.hostname) {
     // this is the deployed react application
     case 'birdr-client.herokuapp.com':
         // this is the full url of your deployed API
-        APIURL = 'https://birdr-client.herokuapp.com'
+        APIURL = 'https://birdrserver.herokuapp.com'
 }
 
 export default APIURL;
